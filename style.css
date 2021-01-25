@@ -1,10 +1,12 @@
 body {
     margin:0px;
+    background-color:#191970;
+    font-family: 'Coda Caption', sans-serif;
 }
 
 .squares {
     border: 1px solid black;
-    font-size: 100px;
+    font-size: 75px;
     text-align: center;
     max-width: 100px;
     max-height:100px;
@@ -12,18 +14,66 @@ body {
     min-height:100px;
 }
 
+#ticTacToeLogo {
+    color:yellow;
+}
+
+#header {
+    text-align: center;
+    margin-top:50px;
+}
+
+#restart {
+    margin-top:50px;
+    text-align: center;
+    
+}
+
+#restartButton {
+    height:50px;
+    border:none;
+    background-color: grey;
+}
+
+#playerOneBoard{
+    float:left;
+    position:relative;
+    top:12%;
+    left:15%;
+}
+
+#playerOneBoard > p {
+    text-align: center;
+}
+
+#playerTwoBoard{
+    float:right;
+    position:relative;
+    bottom:26%;
+    right:18%;
+}
+
+#playerTwoBoard > p {
+    text-align: center;
+}
+
+.active{
+  
+}
+
 .squares:hover {
-    background-color: aliceblue;
+    background-color: gray;
 }
 
 #wrapper {
     margin:auto;
-    margin-top:25%;
+    margin-top:5%;
+    position:Relative;
+    right:5%;
     height:300px;
     width:300px;
     display:grid;
     grid-template-columns: 100px 100px 100px;
-    border: 1px solid black;
 }
 
 /* .s1 {
