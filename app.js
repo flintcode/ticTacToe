@@ -26,17 +26,8 @@ gameBoard.createCell("s9")
 const displayController = (() => {
     const squareEach = document.getElementsByClassName('squares')
 
-    //     const checkWin = (marker) => {
-    //         for (i = 0 ; i < squareEach.length; i++) {
-    //             squareEach[i].textContent.addEventListener('input', (e) => {
-    //                 if (document.getElementById("s1").textContent == marker && document.getElementById("s2").textContent == marker  && document.getElementById("s3").textContent == marker){
-    //                     alert ('winner!')
-    //                 }
-    //             })
-    //         }
-       
-    //  }      
-    const restart = (marker) => {
+
+    const restart = () => {
         document.getElementById("restart").addEventListener('click', () => {
             for (i = 0; i < squareEach.length; i++) {
                 squareEach[i].innerHTML = null;
@@ -44,49 +35,75 @@ const displayController = (() => {
         })
     }
 
-    const writeToDom = (marker) => {
+   
+
+    const writeToDom = () => {
 
         for (i = 0; i < squareEach.length; i++){
             squareEach[i].addEventListener('click', (e) => {  
-                
-                    if ((document.getElementById("s1").textContent == marker && document.getElementById("s2").textContent == marker  && document.getElementById("s3").textContent == marker)||
-                    (document.getElementById("s4").textContent == marker && document.getElementById("s5").textContent == marker  && document.getElementById("s6").textContent == marker)|| 
-                    (document.getElementById("s7").textContent == marker && document.getElementById("s8").textContent == marker  && document.getElementById("s9").textContent == marker) || 
-                    (document.getElementById("s1").textContent == marker && document.getElementById("s4").textContent == marker  && document.getElementById("s7").textContent == marker)|| 
-                    (document.getElementById("s2").textContent == marker && document.getElementById("s5").textContent == marker  && document.getElementById("s8").textContent == marker) || 
-                    (document.getElementById("s3").textContent == marker && document.getElementById("s6").textContent == marker  && document.getElementById("s9").textContent == marker)||
-                    (document.getElementById("s1").textContent == marker && document.getElementById("s5").textContent == marker  && document.getElementById("s9").textContent == marker) ||
-                    (document.getElementById("s3").textContent == marker && document.getElementById("s5").textContent == marker  && document.getElementById("s7").textContent == marker)) {
-                        alert ('winner!') // works only if you click again
-                        restart(marker)
-                    }  
-
                     wrapper.classList.toggle('active')
+                    if (document.getElementById("winnerText").textContent == 'Player one is the winner!' || document.getElementById("winnerText").textContent == 'Player two  is the winner!' || 
+                    document.getElementById("winnerText").textContent == 'Tie Game!'){
+                        e.target.textContent = " ";
+                    }
                    if (e.target.textContent){
-                       alert('taken');
+                    document.getElementById("winnerText").textContent = 'taken';
                    }              
                    else {
-                    return (wrapper.classList.contains('active')) ?  e.target.textContent = "X":e.target.textContent = "O";  
-                   }
+                    if (wrapper.classList.contains('active')) {
+                        e.target.textContent = "X";
+                        document.getElementById("winnerText").textContent = ' ';
+                    }  
+                    else {
+                        e.target.textContent = "O";
+                        document.getElementById("winnerText").textContent = ' ';
+                    }
                    
+                   }  
+
+                if ((document.getElementById("s1").textContent == "X" && document.getElementById("s2").textContent == "X"  && document.getElementById("s3").textContent == "X")||
+                        (document.getElementById("s4").textContent == "X" && document.getElementById("s5").textContent == "X"  && document.getElementById("s6").textContent == "X")|| 
+                        (document.getElementById("s7").textContent == "X" && document.getElementById("s8").textContent == "X"  && document.getElementById("s9").textContent == "X") || 
+                        (document.getElementById("s1").textContent == "X" && document.getElementById("s4").textContent == "X"  && document.getElementById("s7").textContent == "X")|| 
+                        (document.getElementById("s2").textContent == "X" && document.getElementById("s5").textContent == "X"  && document.getElementById("s8").textContent == "X") || 
+                        (document.getElementById("s3").textContent == "X" && document.getElementById("s6").textContent == "X"  && document.getElementById("s9").textContent == "X")||
+                        (document.getElementById("s1").textContent == "X" && document.getElementById("s5").textContent == "X"  && document.getElementById("s9").textContent == "X") ||
+                        (document.getElementById("s3").textContent == "X" && document.getElementById("s5").textContent == "X"  && document.getElementById("s7").textContent == "X")){
+                          
+                            document.getElementById("winnerText").textContent = 'Player one is the winner!';
+
+
+                          
+                        } 
+                else if ((document.getElementById("s1").textContent == "O" && document.getElementById("s2").textContent == "O"  && document.getElementById("s3").textContent == "O")||
+                (document.getElementById("s4").textContent == "O" && document.getElementById("s5").textContent == "O"  && document.getElementById("s6").textContent == "O")|| 
+                (document.getElementById("s7").textContent == "O" && document.getElementById("s8").textContent == "O"  && document.getElementById("s9").textContent == "O") || 
+                (document.getElementById("s1").textContent == "O" && document.getElementById("s4").textContent == "O"  && document.getElementById("s7").textContent == "O")|| 
+                (document.getElementById("s2").textContent == "O" && document.getElementById("s5").textContent == "O"  && document.getElementById("s8").textContent == "O") || 
+                (document.getElementById("s3").textContent == "O" && document.getElementById("s6").textContent == "O"  && document.getElementById("s9").textContent == "O")||
+                (document.getElementById("s1").textContent == "O" && document.getElementById("s5").textContent == "O"  && document.getElementById("s9").textContent == "O") ||
+                (document.getElementById("s3").textContent == "O" && document.getElementById("s5").textContent == "O"  && document.getElementById("s7").textContent == "O")){
+               
+                    document.getElementById("winnerText").textContent = 'Player two is the winner!';
+                    
+
+               }
+               else if (document.getElementById("s1").textContent != "" && document.getElementById("s2").textContent != ""  && document.getElementById("s3").textContent != "" && 
+                document.getElementById("s4").textContent != "" && document.getElementById("s5").textContent != ""   && document.getElementById("s6").textContent != "" &&
+               document.getElementById("s7").textContent != ""  && document.getElementById("s8").textContent != ""   && document.getElementById("s9").textContent != "" ) {
+                document.getElementById("winnerText").textContent = 'Tie Game!';
+                  
+                }
             })                  
         }
-       
+        
     }
-
-     
+        
     return {writeToDom,restart}
 })();
 
-displayController.writeToDom("X")
 
-displayController.restart("X")
-
-
-const player = () => {
-    
-    
-}
-
+displayController.restart()
+displayController.writeToDom()
 
 

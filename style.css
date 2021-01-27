@@ -18,6 +18,17 @@ body {
     color:yellow;
 }
 
+#winnerText {
+    
+    text-align: center;
+}
+
+#winnerTextWrapper {
+    position:fixed;
+    left:40%;
+    top:12%;
+}
+
 #header {
     text-align: center;
     margin-top:50px;
@@ -30,9 +41,12 @@ body {
 }
 
 #restartButton {
-    height:50px;
+    height:75px;
+    width:150px;
     border:none;
+    font-size:25px;
     background-color: grey;
+    border-radius: 2.5%;
 }
 
 #playerOneBoard{
