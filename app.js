@@ -32,10 +32,9 @@ const displayController = (() => {
             for (i = 0; i < squareEach.length; i++) {
                 squareEach[i].innerHTML = null;
             }
+            document.getElementById('winnerText').textContent = null;
         })
     }
-
-   
 
     const writeToDom = () => {
 

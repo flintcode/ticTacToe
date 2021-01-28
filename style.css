@@ -52,7 +52,7 @@ body {
 #playerOneBoard{
     float:left;
     position:relative;
-    top:12%;
+    top:10%;
     left:15%;
 }
 
@@ -89,48 +89,3 @@ body {
     display:grid;
     grid-template-columns: 100px 100px 100px;
 }
-
-/* .s1 {
-    border: 1px solid black;
-    text-align: center;
-    font-size: 100px;
-    overflow: hidden;
-}
-
-.s2 {
-    border: 1px solid black;
-  
-}
-
-.s3 {
-    border: 1px solid black;
-
-}
-
-.s4 {
-    border: 1px solid black;
-  
-}
-
-.s5 {
-    border: 1px solid black;
-   
-}
-
-.s6 {
-    border: 1px solid black;
-
-}
-
-.s7 {
-    border: 1px solid black;
-}
-
-.s8 {
-    border: 1px solid black;
-}
-
-.s9{
-    border: 1px solid black;
-}  */
-
