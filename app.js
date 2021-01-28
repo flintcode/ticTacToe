@@ -41,10 +41,11 @@ const displayController = (() => {
         for (i = 0; i < squareEach.length; i++){
             squareEach[i].addEventListener('click', (e) => {  
                     wrapper.classList.toggle('active')
-                    if (document.getElementById("winnerText").textContent == 'Player one is the winner!' || document.getElementById("winnerText").textContent == 'Player two  is the winner!' || 
-                    document.getElementById("winnerText").textContent == 'Tie Game!'){
-                        e.target.textContent = " ";
-                    }
+                   
+                if ((document.getElementById("winnerText").textContent == 'Player one is the winner!' || document.getElementById("winnerText").textContent == 'Player two is the winner!' || 
+                document.getElementById("winnerText").textContent == 'Tie Game!') && (e.target.textContent == false)) {
+                    e.target.textContent = " ";
+                }
                    if (e.target.textContent){
                     document.getElementById("winnerText").textContent = 'taken';
                    }              
